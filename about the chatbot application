@@ -4,3 +4,43 @@ It features a straightforward layout where users can input their queries in a te
 The application leverages basic natural language processing (NLP) techniques to understand and respond to user inputs, making it capable of handling a variety of simple interactions. 
 The Tkinter-based interface ensures that the chatbot is easy to use and interact with, providing a practical demonstration of how to create a functional chatbot using Python.
 This project highlights the integration of NLP and GUI development within a single application, showcasing the potential of Python for building interactive and engaging user interfaces.
+
+# here is the explanation of the project:-
+1. Imports and Setup
+a)	Import Libraries:-
+•	tkinter and tkinter.scrolledtext: Used to create the GUI application.
+•	requests: Used to make HTTP requests to the Hugging Face API.
+b)	API Configuration:-
+•	API_URL: The URL endpoint for the Hugging Face BERT model.
+•	headers: Contains the authorization token needed to access the API. Replace "hf_wiHvXMOuzIypWbtsPnheQEmoSMvdqrzuxqO" with my actual token.
+
+2 .Functions:- 	
+a)	query(payload):
+•	This function takes a payload (a dictionary with input data) and sends a POST request to the Hugging Face API.
+•	It returns the JSON response from the API.
+b)	get_response():
+•	This function retrieves the user's question and context from the text fields.
+•	It sends these inputs to the query function to get a response from the API.
+•	The response is displayed in the response text area of the GUI.
+•	If there is a KeyError (e.g., if the API response doesn't contain the expected answer key), it displays an error message.
+
+3. GUI Setup:- 
+a)	Main Window:
+•	root = tk.Tk(): Initializes the main window of the application.
+•	root.title("GenAI QUES & ANS"): Sets the title of the window.
+b)	Context Input:
+•	A label (context_label) and a scrolled text widget (context_entry) for the user to input the context.
+•	pack() methods are used to add these widgets to the window.
+c)	Question Input:
+•	A label (question_label) and a scrolled text widget (question_entry) for the user to input the question.
+•	These widgets are also added to the window using pack().
+d)	Get Response Button:
+•	A button (get_response_button) that triggers the get_response function when clicked.
+•	Added to the window using pack().
+e)	Response Display:
+•	A label (response_label) and a scrolled text widget (response_text) for displaying the response from the API.
+•	The response text area is initially disabled to prevent user edits.
+
+4. Main Loop:-
+•	root.mainloop(): Starts the Tkinter event loop, which keeps the window open and responsive to user inputs.
+
